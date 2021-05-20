@@ -53,7 +53,7 @@ RUN dpkg-reconfigure locales
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
-RUN wget https://download.teamviewer.com/download/linux/teamviewer_i386.deb
+RUN wget --no-check-certificate https://download.teamviewer.com/download/linux/teamviewer_i386.deb
 RUN sudo apt install ./teamviewer_i386.deb
 
 COPY . /app
