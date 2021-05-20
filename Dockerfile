@@ -46,12 +46,16 @@ RUN set -ex; \
 	ibus-gtk3 \
 	ibus-qt4 \
 	openssh-server \
+	teamviewer \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 RUN dpkg-reconfigure locales
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
+
+RUN wget https://download.teamviewer.com/download/linux/teamviewer_i386.deb
+RUN sudo apt install ./teamviewer_i386.deb
 
 COPY . /app
 RUN chmod +x /app/conf.d/websockify.sh
